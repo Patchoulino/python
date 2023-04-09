@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <title>Next Birthday</title>
+    <script>
+        function updateCountdown() {
+            var date_str = "{{ date }}";
+            var name = "{{ name }}";
+            var date_obj = new Date(date_str);
+            var time_left = (date_obj - new Date()) / 1000;
+            var hours = Math.floor(time_left / 3600);
+            var minutes = Math.floor((time_left % 3600) / 60);
+            var seconds = Math.floor(time_left % 60);
+            document.getElementById("countdown").innerHTML = hours + " hours, " + minutes + " minutes, " + seconds + " seconds";
+            if (time_left < 0) {
+                clearInterval(interval);
+                document.getElementById("countdown").innerHTML = "Event has started!";
+            }
+        }
+        var interval = setInterval(updateCountdown, 1000);
+    </script>
+</head>
+<body>
+    <h1>Countdown to {{ name }}'s Birthday</h1>
+    <h2>{{ date }}</h2>
+    <p id="countdown"></p>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>My Countdown Timer</h1>
+    </header>
+    <main>
+      <h1 id="countdown"></h1>
+      <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Apr 16, 2023 00:00:00").getTime();
+  
+        // Update the countdown every 1 second
+        var x = setInterval(function() {
+  
+          // Get the current time
+          var now = new Date().getTime();
+  
+          // Calculate the time remaining
+          var distance = countDownDate - now;
+  
+          // Calculate days, hours, minutes and seconds remaining
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+          // Display the countdown in the element with id="countdown"
+          document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+          + minutes + "m " + seconds + "s ";
+  
+          // If the countdown is finished, display "EXPIRED"
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "EXPIRED";
+          }
+        }, 1000);
+      </script>
+    </main>
+  </body>
+</html>
