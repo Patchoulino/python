@@ -1,0 +1,12 @@
+[Unit]
+Description=Countdown Daemon
+After=network.target
+
+[Service]
+User=$USER
+WorkingDirectory=/$PATH/countdown
+ExecStart=/$PYTHON_PATH/python app.py --port $PORT --file $FILE
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

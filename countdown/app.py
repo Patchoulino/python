@@ -5,13 +5,15 @@ import datetime
 app = Flask(__name__)
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--port', type=int, default=5001, help='port number')
-parser.add_argument('--countdown-file', type=str, default='countdown.txt', help='path to countdown file')
+parser.add_argument('--port', type=int, default=5000, help='port number')
+parser.add_argument('-p', type=int, dest='port')
+parser.add_argument('--file', type=str, default='countdown_dates.txt', help='path to countdown file')
+parser.add_argument('-f', type=str, dest='file')
 args = parser.parse_args()
 
 @app.route('/')
 def countdown():
-    with open(args.countdown_file, 'r') as f:
+    with open(args.file, 'r') as f:
         lines = f.readlines()
     events = []
     for line in lines:
