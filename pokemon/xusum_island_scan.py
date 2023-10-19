@@ -1,4 +1,4 @@
-#!/home/abraham/bin/python
+#!/home/abagl/bin/python
 # run as ./usum_ultrawormhole.py pkmn 192.168.1.
 # sleep 0.1~ between multiple ones
 # port = 4950
