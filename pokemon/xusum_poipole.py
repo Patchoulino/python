@@ -137,7 +137,7 @@ while True:
     for i in range(75):     # 15 sec
         button('a', T, T)
     button('s_up', 0.5, 0.5)
-    for i in range(50):     # 10 sec
+    for i in range(49):     # 10 sec
         button('a', T, T)
     time.sleep(6.0)
     soft_reset()
