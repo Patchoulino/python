@@ -1,8 +1,5 @@
 # python
 
-yum clean all
-yum install gcc openssl-devel bzip2-devel libffi-devel zlib-devel python-gofer-proton.noarch python-isodate.noarch python-pulp-common compat-libstdc++-33.x86_64
-
 # https://www.python.org/downloads/
 # Gzipped source tarball
 # https://www.python.org/ftp/python/3.9.18/Python-3.9.18.tgz
@@ -40,7 +37,8 @@ yum install bison byacc cscope ctags cvs diffstat doxygen flex gcc gcc-c++ gcc-g
 ########################### python install
 yum -y update --skip-broken
 yum -y groupinstall "Development Tools"
-yum -y install gcc openssl-devel bzip2-devel libffi-devel
+yum -y install gcc openssl-devel bzip2-devel libffi-devel sqlite-devel sqlite-libs.i686 
+
 
 https://realpython.com/installing-python/#how-to-build-python-from-source-code
 
